@@ -3,6 +3,6 @@
 using namespace std;
 int main() {
     vector<int> array = {10,-15,22,5,44,-56,-2,52,4,-6};
-
+    for (int i : array);
     return 0;
 }
