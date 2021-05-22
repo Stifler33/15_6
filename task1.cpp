@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 int main() {
-    vector<int> array = {-2,1,-3,4,-1,2,1,-5,4};
+    vector<int> array = {2,-1,2,5,0,-5,-1,2,4};
 
     int maxI = 0;
     int minI = 0;
@@ -15,13 +15,21 @@ int main() {
             maxI = i;
         }
     }
-    for (int i = maxI; i >= 0; i--){
-        maxSum -= array[i];
-        if (maxSum == 0) {
-            minI = i;
+    int minSum = 0;
+
+    for (int j = 0; j < maxI; j++){
+        int sum2 = 0;
+        for (int g = j ; g <= maxI; g++){
+            sum2 += array[g];
+        }
+        if (sum2 > minSum) {
+            minSum = sum2;
+            minI = j;
         }
     }
+
     cout << "max index " << maxI << endl;
     cout << "min index " << minI << endl;
+    cout << "min Sum " << minSum << endl;
     return 0;
 }
