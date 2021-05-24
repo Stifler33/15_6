@@ -21,9 +21,12 @@ int main() {
         if (input == -1){
             sort_Vec(vec);
             cout << vec[4] << endl;
+            //output all vec
+            /*
             for (int i : vec){
                 cout << i << ' ';
             }
+             */
             cout << endl;
         }else if (input == -2){
             return 0;
