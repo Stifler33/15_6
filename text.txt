@@ -7,4 +7,34 @@
 -5,7,-8,-4,6,-7,-2,5,15,1
 
 -8,-7,-5,-4,-2,3,6,15
+-3,-2,-1,2,4
+1,2,3
+-2,-1,3
 11
+
+if (start < vec.size() - 1) start += 1;
+    bool end_vec = start == vec.size() - 1;
+    for (int i = start != 0 ? start - 1 : start + 1; i > 0 || start < vec.size();){
+        assert (i >= 0 && i < vec.size());
+        assert (start >= 0 && start < vec.size());
+        if (abs(vec[i]) <= abs(vec[start])){
+            cout << vec[i] << " ";
+            if (i > 0 && i < vec.size() - 1) {
+                start == 0 ? i++ : i--;
+            }else if (i == 0){
+                i = start + 1;
+            }else{
+                cout << vec[start] << " ";
+                break;
+            }
+        }else {
+            cout << vec[start] << " ";
+            if (start > 0 && start < vec.size() - 1) {
+                vec[start] <= 0 ? start-- : start++;
+            }else {
+                cout << vec[i] << " ";
+                break;
+            }
+        }
+    }
+

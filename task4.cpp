@@ -1,21 +1,26 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <cassert>
 using namespace std;
 int main() {
-    vector<int> vec = {-2,-1,1,2,3};
-    int start = 0;
-    for (int s = 0; s < vec.size() && vec[s] < 0; s++){
-        start = s + 1;
+    vector<int> vec = {-3,-2,-1,2,4,5,6};
+    int start;
+    for (int i = 0; i < vec.size() && vec[i] <= 0; i++){
+        start = i + 1;
     }
-    for (int i = start - 1; i >= 0 || start < vec.size();){
-        if (vec[start] > abs(vec[i])){
+    int i = 0;
+    for (i = (start <= vec.size() && start > 0) ? start - 1 : start + 1 ; i >= 0 && start <= vec.size();){
+        if (abs(vec[i]) <= abs(vec[start])){
             cout << vec[i] << " ";
-            i--;
-        }else {
+            if (i < start) {
+                i--;
+            }
+        }else{
             cout << vec[start] << " ";
             start++;
         }
     }
+    cout << endl << start << endl << i;
     return 0;
 }
